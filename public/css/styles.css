@@ -55,7 +55,10 @@ button:disabled {
     cursor: default;
     background: #7c5cbf94;
 }
-
+.dis{
+    background-color: darkolivegreen;
+    margin-left: 40px;
+}
 /* Join Page Styles */
 
 .centered-form {
@@ -87,6 +90,7 @@ button:disabled {
 
 .chat {
     display: flex;
+    background-image: url(/img/back.png);
 }
 
 .chat__sidebar {

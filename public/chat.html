@@ -4,7 +4,7 @@
     <head>
         <title>Chat App</title>
         <link rel="icon" href="/img/Chat-Icon.png">
-        <link rel="stylesheet" href="/css/styles.min.css">
+        <link rel="stylesheet" href="/css/styles.css">
         <!-- <script type="text/javascript" >
             function preventBack(){window.history.forward();}
              setTimeout("preventBack()", 0);
@@ -12,10 +12,9 @@
          </script> -->
     </head>
     <body>
-        <h3>Chat Room</h3>
         <div class="chat">
             <div class="chat__sidebar" id="sidebar">
-
+                
             </div>
             <div class="chat__main">
                 <div id="message" class="chat__messages"></div>
@@ -49,6 +48,10 @@
         </script>
         
         <script id="sidebar-template" type="text/html">
+            <form action="/index.html">
+                <button class="button dis">Leave Room</button>
+            </form>
+            
             <h2 class="room-title">{{room}}</h2>
             <h3 class="list-title">Users</h3>
             <ul class="users">
