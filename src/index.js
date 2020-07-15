@@ -91,7 +91,6 @@ io.on('connection',(socket)=>{
     })
 })
 
-//-- save-dev as run locally
 //app-->server
 server.listen(port,()=>{
     console.log('Serve is up on port '+port);
