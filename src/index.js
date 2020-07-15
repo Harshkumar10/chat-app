@@ -28,17 +28,6 @@ app.use(express.static(publicDirectoryPath));
 io.on('connection',(socket)=>{
     console.log('New Websocket connection');
 
-    // //send an event
-    // socket.emit('countUpdated',count);
-
-    // socket.on('increment',()=>{
-    //     count++;
-    //     //socket.emit('countUpdated',count);
-    //     io.emit('countUpdated',count);
-    // })
-    
-
-
     socket.on('join',({username,room},callback)=>{
 
         const {error,user}=addUser({ id:socket.id,username,room })

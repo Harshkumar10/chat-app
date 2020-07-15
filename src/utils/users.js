@@ -50,12 +50,6 @@ const getUsersInRoom=(room)=>{
     return users.filter((user)=>user.room===room);
 }
 
-
-// const user=getUser(242);
-// console.log(user);
-// const UserList=getUsersInRoom('patna  pa');
-// console.log(UserList);
-
 module.exports={
     addUser,
     removeUser,
