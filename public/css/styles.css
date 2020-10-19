@@ -72,7 +72,7 @@ button:disabled {
 
 .centered-form__box {
     box-shadow: 0px 0px 17px 1px #1D1F26;
-    background: #F7F7FA;
+    background: #f7f7facb;
     padding: 24px;
     width: 250px;
 }
@@ -184,4 +184,39 @@ button:disabled {
     list-style-type: none;
     font-weight: 300;
     padding: 12px 24px 0 24px;
+}
+@media (max-width:480px)
+{
+    .chat__sidebar{
+        width: 0vw;
+    }
+    .chat__main{
+        width: 100vw;
+    }
+    /* .compose{
+        display: flex;
+        height: 100vh;
+    } */
+    .compose input{
+        height: 10vh;
+    }
+    .message__name{
+        font-size: medium;
+    }
+    .message__meta{
+        font-size: medium;
+    }
+    .message a{
+        font-size: medium;
+    }
+}
+
+
+@media all and (max-width:600px){
+
+    .centered-form__box{
+        background: #5f1e1e;
+        width: 80vw;
+        height: 80vh;
+    }
 }

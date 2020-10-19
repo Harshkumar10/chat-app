@@ -2,7 +2,7 @@
 //this is client
 const socket=io();
 
-//Elemnts
+//Elements
 const $messageForm=document.querySelector('#message-form');
 const $messageFormInput=$messageForm.querySelector('input');
 const $messageFormButton=$messageForm.querySelector('button');
@@ -14,31 +14,9 @@ const messageTemplate=document.querySelector('#message-template').innerHTML;
 const locationMessageTemplate=document.querySelector('#location-message-template').innerHTML;
 const sidebarTemplate= document.querySelector('#sidebar-template').innerHTML;
 
-//Optoin
+//Option
 const {username,room}= Qs.parse(location.search,{ignoreQueryPrefix:true});
-
-const autoscroll=()=>{
-    //new message elemt
-    const $newMessage=$messages.lastElementChild
-
-    //height of last message
-    const newMessageStyle=getComputedStyle($newMessage);
-    const newMessageMargin=parseInt(newMessageStyle.marginBottom);
-    const newMessageHeight=$newMessage.offsetHeight+newMessageMargin;
-    //console.log(newMessageMargin);
-    const visibleHeight=$messages.offsetHeight
-
-    //Height of messages container
-    const containerHeight=$messages.scrollHeight;
-
-    //how have i scolled
-    const scrollOffset=$messages.scrollTop+visibleHeight;
-    if(containerHeight-newMessageHeight <= scrollOffset)
-    {
-        $messages.scrollTop=$messages.scrollHeight;
-    }
-
-}
+ 
 
 socket.on('message',(message)=>{
     console.log(message);
@@ -48,7 +26,6 @@ socket.on('message',(message)=>{
         createdAt:moment(message.createdAt).format('h:m:s A')
     });
     $messages.insertAdjacentHTML('beforeend',html);
-    autoscroll();
 })
 socket.on('LocationMessage',(message)=>{
     //console.log(message);
@@ -58,7 +35,6 @@ socket.on('LocationMessage',(message)=>{
         createdAt:moment(message.createdAt).format('h:m:s A')
     })
     $messages.insertAdjacentHTML('beforeend',html);
-    autoscroll();
 })
 
 socket.on('roomData',({room,users})=>{
@@ -77,9 +53,8 @@ $messageForm.addEventListener('submit',(e)=>{
     $messageFormButton.setAttribute('disabled','disabled');
     const message=document.querySelector('input').value;
     socket.emit('sendMessage',message,(error)=>{
-        //when the event acknowleged
-
-        //ensble
+        //when the event acknowledged
+        //enable
         $messageFormButton.removeAttribute('disabled','disabled');
         //clear the input 
         $messageFormInput.value='';
@@ -90,13 +65,13 @@ $messageForm.addEventListener('submit',(e)=>{
         {
             return console.log(error);
         }
-        console.log('Message delivered');
+        // console.log('Message delivered');
     });
 })
 
 $sendLocationButton.addEventListener('click',()=>{
     if(!navigator.geolocation)
-    return alert('Geoloation is not suppeorted');
+    return alert('Geoloation is not supported');
     //disabling the button
     $sendLocationButton.setAttribute('disabled','disabled');
 
@@ -107,7 +82,7 @@ $sendLocationButton.addEventListener('click',()=>{
             latitude:position.coords.latitude,
             longitude:position.coords.longitude
         },()=>{
-            console.log('Location Shared!');
+            //console.log('Location Shared!');
             $sendLocationButton.removeAttribute('disabled');
         })
     })

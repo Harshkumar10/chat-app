@@ -15,18 +15,12 @@ const publicDirectoryPath=path.join(__dirname,'../public');
 
 app.use(express.static(publicDirectoryPath));
 
-//server(emit) ->client(recieve)- countUpdated
-//client(emit) ->server(receive)- increment
 
 //server(emit)-->client(receive)-->acknowlwdge-->server
 //client(emit)-->server(receive)-->acknowlwdge-->client
 
-//on we are listening
-
-
 
 io.on('connection',(socket)=>{
-    console.log('New Websocket connection');
 
     socket.on('join',({username,room},callback)=>{
 
