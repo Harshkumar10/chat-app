@@ -90,7 +90,7 @@ button:disabled {
 
 .chat {
     display: flex;
-    background-image: url(/img/back.png);
+    background: hsl(0, 33%, 94%);
 }
 
 .chat__sidebar {
@@ -185,7 +185,19 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
 }
-@media (max-width:480px)
+@media all and (max-width:768px){
+
+    .centered-form__box{
+        background: #5f1e1e;
+        width: 80vw;
+        height: 80vh;
+    }
+    .compose{
+        flex-direction: column;
+    }
+}
+
+@media (max-width:320px)
 {
     .chat__sidebar{
         width: 0vw;
@@ -193,12 +205,17 @@ button:disabled {
     .chat__main{
         width: 100vw;
     }
-    /* .compose{
-        display: flex;
-        height: 100vh;
-    } */
+    .compose{
+        flex-direction: column;
+    }
     .compose input{
+        padding: 10px;
         height: 10vh;
+        margin-right: 0px;
+    }
+    .compose button{
+        float: top;
+        border-radius: 100px;
     }
     .message__name{
         font-size: medium;
@@ -212,11 +229,3 @@ button:disabled {
 }
 
 
-@media all and (max-width:600px){
-
-    .centered-form__box{
-        background: #5f1e1e;
-        width: 80vw;
-        height: 80vh;
-    }
-}
