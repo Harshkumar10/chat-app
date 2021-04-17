@@ -1,11 +1,6 @@
 //connect to the server
 //this is client
-const socket = io({
-    reconnection: true,
-    reconnectionDelay: 1000,
-    reconnectionDelayMax: 5000,
-    reconnectionAttempts: 5,
-});
+const socket = io();
 
 //Elements
 const $messageForm = document.querySelector("#message-form");
